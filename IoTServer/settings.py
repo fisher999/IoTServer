@@ -11,8 +11,10 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'nv&r=jfyp=10@^h4^r_#0&u2qn1e$gc9+b*+$25-5a3*xfi86&')
+import django_heroku
 
+SECRET_KEY = 'nv&r=jfyp=10@^h4^r_#0&u2qn1e$gc9+b*+$25-5a3*xfi86&'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -20,7 +22,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'nv&r=jfyp=10@^h4^r_#0&u2qn1e$g
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -115,3 +117,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+django_heroku.settings(locals())
